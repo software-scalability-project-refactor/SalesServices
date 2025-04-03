@@ -1,0 +1,16 @@
+services:
+  postgres_db:
+    image: postgres:latest
+    container_name: sales_postgres
+    environment:
+      POSTGRES_USER: admin   
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: sales_database 
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:  
+  postgres_data: 
